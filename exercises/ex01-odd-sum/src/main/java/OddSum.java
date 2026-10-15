@@ -9,6 +9,11 @@
  */
 public class OddSum {
 
+  /**
+   * Print the sum of elements with odd indices.
+   *
+   * @param args arguments
+   */
   public static void main(String[] args) {
     int[] numbers = {10, 20, 30, 40, 50};
     // Values at odd indices are 20 (index 1) and 40 (index 3), so this
