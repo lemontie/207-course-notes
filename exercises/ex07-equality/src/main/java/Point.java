@@ -1,18 +1,17 @@
 import java.util.Objects;
 
 /**
- * Exercise (Chapter 2: Classes) — overriding {@code toString}, {@code equals},
- * and {@code hashCode}.
+ * Exercise (Chapter 2: Classes) — overriding {@code toString}, {@code equals}, and {@code
+ * hashCode}.
  *
- * Every class inherits these methods from {@code Object}, but the defaults
- * compare by identity (are these the *same* object?) rather than by value.
- * Override the three methods below so two points with the same coordinates are
- * treated as equal. Edit only this file.
+ * <p>Every class inherits these methods from {@code Object}, but the defaults compare by identity
+ * (are these the *same* object?) rather than by value. Override the three methods below so two
+ * points with the same coordinates are treated as equal. Edit only this file.
  *
- * Remember the contract: if {@code a.equals(b)} is true, then
- * {@code a.hashCode() == b.hashCode()} must also be true.
+ * <p>Remember the contract: if {@code a.equals(b)} is true, then {@code a.hashCode() ==
+ * b.hashCode()} must also be true.
  *
- * Relevant reading: 2.6.1. toString, 2.6.2. equals, 2.6.3. hashCode.
+ * <p>Relevant reading: 2.6.1. toString, 2.6.2. equals, 2.6.3. hashCode.
  */
 public class Point {
 
@@ -39,15 +38,13 @@ public class Point {
   }
 
   /**
-   * Returns this point formatted as {@code "(x, y)"} — for example
-   * {@code "(3, 4)"}.
+   * Returns this point formatted as {@code "(x, y)"} — for example {@code "(3, 4)"}.
    *
    * @return the string form of this point
    */
   @Override
   public String toString() {
-    // TODO
-    return "";
+    return "(" + this.x + ", " + this.y + ")";
   }
 
   /**
@@ -58,20 +55,35 @@ public class Point {
    */
   @Override
   public boolean equals(Object o) {
-    // TODO: check that o is a Point (use `instanceof`), cast it, and compare
-    //       the x and y fields.
+    if (this == o) {
+      return true;
+    }
+
+    if (o == null) {
+      return false;
+    }
+
+    if (o.getClass() != this.getClass()) {
+      return false;
+    }
+
+    Point other = (Point) o;
+
+    if (other.x == this.x && other.y == this.y) {
+      return true;
+    }
+
     return false;
   }
 
   /**
-   * Returns a hash code consistent with {@link #equals(Object)} — equal points
-   * must return the same value.
+   * Returns a hash code consistent with {@link #equals(Object)} — equal points must return the same
+   * value.
    *
    * @return a hash code derived from x and y
    */
   @Override
   public int hashCode() {
-    // TODO: Objects.hash(x, y) is an easy way to combine the fields.
-    return 0;
+    return this.x;
   }
 }
